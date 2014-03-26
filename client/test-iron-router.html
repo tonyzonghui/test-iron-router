@@ -1,0 +1,77 @@
+<head>
+	<title>Test Iron Router</title>
+</head>
+
+<body>
+</body>
+
+<template name="layout">
+	<div id="wrap">
+		{{> header}}
+	  {{{yield}}}
+	</div>
+</template>
+
+<template name="header">
+  <div class="nav navbar navbar-default" role="navigation">
+  	<div class="container-fluid">
+  		<div class="navbar-header">
+  			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu-collapse">
+  				<span class="sr-only">Toggle navigation</span>
+  				<span class="icon-bar"></span>
+  				<span class="icon-bar"></span>
+  				<span class="icon-bar"></span>
+  			</button>
+  			<a href="#" class="navbar-brand">My Brand</a>
+  		</div>
+
+  		<div class="collapse navbar-collapse" id="navbar-menu-collapse">
+  			<ul class="nav navbar-nav">
+  				<li id="nav-home" class="active"><a href="/">Home</a></li>
+  				<li id="nav-posts"><a href="/posts">Posts</a></li>
+  				<li id="nav-about"><a href="/aboutus">About Us</a></li>
+  			</ul>
+  		</div>
+  	</div>
+  </div>
+</template>
+
+<template name="home">
+  <h1>Welcome to Iron Router</h1>
+</template>
+
+<template name="aboutus">
+  <h1>About Us</h1>
+</template>
+
+<template name="posts">
+  <h1>Welcome to Posts</h1>
+  <div id="posts">
+  	<table class="table" id="table-posts">
+  		<thead>
+  			<th class="col-md-3">Title</th>
+  			<th class="col-md-6">Content</th>
+  			<th>Actions</th>
+  		</thead>
+  		<tbody>
+  			{{#each posts}}
+  				{{> postRow}}
+  			{{/each}}
+  		</tbody>
+  	</table>
+  </div>
+</template>
+
+<template name="postRow">
+  <tr>
+  	<td>{{title}}</td>
+  	<td>{{text}}</td>
+  	<td class="links">
+  		<ul class="nav navbar-nav actions">
+  			<li><a href="/posts/{{_id}}">Show</a></li>
+  			<li><a href="#">Edit</a></li>
+  			<li><a href="#">Delete</a></li>
+  		</ul>
+  	</td>
+  </tr>
+</template>
